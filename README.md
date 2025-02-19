@@ -101,13 +101,18 @@ WHERE sale_date = '2022-11-05';
 ![Sales on Date](https://raw.githubusercontent.com/mansi306/Mysql_retail_sale_Project_1/refs/heads/main/Mysql_retail_sale_Project_1/screenshots/s4.png)
 ```sql
 -- Clothing sales with quantity >= 4 in Nov 2022
-SELECT * FROM retail_sales
-WHERE category = 'Clothing' AND quantity >= 4
-AND DATE_FORMAT(sale_date, "%Y-%m") = "2022-11";
+SELECT * 
+	FROM retail_sales
+WHERE 
+	category = 'Clothing'
+	AND 
+	quantity >= 4
+	AND 
+	DATE_FORMAT(sale_date,"%Y-%m") = "2022-11";
 ```
 
 ### Output:
-![Clothing Sales](https://raw.githubusercontent.com/mansi306/Mysql_retail_sale_Project_1/main/screenshots/s6.png)
+![Clothing Sales](https://raw.githubusercontent.com/mansi306/Mysql_retail_sale_Project_1/refs/heads/main/Mysql_retail_sale_Project_1/screenshots/s5.png)
 
 ```sql
 -- Total sales per category

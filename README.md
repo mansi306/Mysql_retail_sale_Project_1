@@ -58,9 +58,6 @@ SELECT * FROM retail_sales WHERE
     total_sale IS NULL;
 ```
 
-### Output:
-![Data Cleaning Output](https://raw.githubusercontent.com/mansi306/Mysql_retail_sale_Project_1/main/screenshots/s1.png)
-
 ## Data Exploration
 
 ```sql
@@ -69,7 +66,7 @@ SELECT COUNT(*) AS total_sale FROM retail_sales;
 ```
 
 ### Output:
-![Total Sales Count](https://raw.githubusercontent.com/mansi306/Mysql_retail_sale_Project_1/main/screenshots/s2.png)
+![Total Sales Count]([https://raw.githubusercontent.com/mansi306/Mysql_retail_sale_Project_1/main/screenshots/s2.png](https://github.com/mansi306/Mysql_retail_sale_Project_1/blob/main/Mysql_retail_sale_Project_1/screenshots/s1.png))
 
 ```sql
 -- Unique customers

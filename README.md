@@ -177,19 +177,37 @@ ORDER BY
 ```sql
 -- Best selling month in each year
 WITH MonthlySales AS (
-    SELECT YEAR(sale_date) AS year, MONTH(sale_date) AS month,
-    ROUND(AVG(total_sale), 2) AS average_sale FROM retail_sales
-    GROUP BY YEAR(sale_date), MONTH(sale_date)
+    SELECT 
+        YEAR(sale_date) AS year,
+        MONTH(sale_date) AS month,
+        ROUND(AVG(total_sale), 2) AS average_sale
+    FROM 
+        retail_sales
+    GROUP BY 
+        YEAR(sale_date),
+        MONTH(sale_date)
 )
-SELECT year, month, average_sale FROM (
-    SELECT year, month, average_sale,
-    RANK() OVER (PARTITION BY year ORDER BY average_sale DESC) AS `rank`
-    FROM MonthlySales
-) AS RankedSales WHERE `rank` = 1 ORDER BY year;
+SELECT 
+    year,
+    month,
+    average_sale
+FROM (
+    SELECT 
+        year,
+        month,
+        average_sale,
+        RANK() OVER (PARTITION BY year ORDER BY average_sale DESC) AS `rank`
+    FROM 
+        MonthlySales
+) AS RankedSales
+WHERE 
+    `rank` = 1
+ORDER BY 
+    year;
 ```
 
 ### Output:
-![Best Selling Month](https://raw.githubusercontent.com/mansi306/Mysql_retail_sale_Project_1/main/screenshots/s11.png)
+![Best Selling Month](https://raw.githubusercontent.com/mansi306/Mysql_retail_sale_Project_1/refs/heads/main/Mysql_retail_sale_Project_1/screenshots/s10.png)
 
 ```sql
 -- Top 5 customers by total sales

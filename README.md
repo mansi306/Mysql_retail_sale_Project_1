@@ -145,11 +145,15 @@ WHERE
 
 ```sql
 -- Transactions with total_sale > 1000
-SELECT * FROM retail_sales WHERE total_sale > 1000;
+SELECT * 
+ FROM 
+	retail_sales 
+ WHERE
+	total_sale > 1000;
 ```
 
 ### Output:
-![Transactions Over 1000](https://raw.githubusercontent.com/mansi306/Mysql_retail_sale_Project_1/main/screenshots/s9.png)
+![Transactions Over 1000](https://raw.githubusercontent.com/mansi306/Mysql_retail_sale_Project_1/refs/heads/main/Mysql_retail_sale_Project_1/screenshots/s8.png)
 
 ```sql
 -- Transactions by gender in each category

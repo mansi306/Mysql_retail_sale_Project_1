@@ -129,13 +129,19 @@ GROUP BY
 
 ### Output:
 ![Sales Per Category](https://raw.githubusercontent.com/mansi306/Mysql_retail_sale_Project_1/refs/heads/main/Mysql_retail_sale_Project_1/screenshots/s6.png)
+
 ```sql
 -- Average age of customers in Beauty category
-SELECT ROUND(AVG(age),2) AS average_age FROM retail_sales WHERE category = 'Beauty';
-```
+SELECT 
+	ROUND(AVG(age),2)AS custmor_average_age 
+FROM 
+	retail_sales 
+WHERE 
+	category = 'Beauty';
 
+```
 ### Output:
-![Average Age](https://raw.githubusercontent.com/mansi306/Mysql_retail_sale_Project_1/main/screenshots/s8.png)
+![Average Age](https://raw.githubusercontent.com/mansi306/Mysql_retail_sale_Project_1/refs/heads/main/Mysql_retail_sale_Project_1/screenshots/s7.png)
 
 ```sql
 -- Transactions with total_sale > 1000

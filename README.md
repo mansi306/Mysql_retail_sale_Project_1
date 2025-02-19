@@ -116,13 +116,19 @@ WHERE
 
 ```sql
 -- Total sales per category
-SELECT category, SUM(total_sale) AS total_sale, COUNT(*) AS total_count
-FROM retail_sales GROUP BY category;
+SELECT 
+	category,
+	SUM(total_sale) AS total_sale, 
+       	COUNT(*) AS total_count
+FROM
+	retail_sales
+GROUP BY 
+	category;
+
 ```
 
 ### Output:
-![Sales Per Category](https://raw.githubusercontent.com/mansi306/Mysql_retail_sale_Project_1/main/screenshots/s7.png)
-
+![Sales Per Category](https://raw.githubusercontent.com/mansi306/Mysql_retail_sale_Project_1/refs/heads/main/Mysql_retail_sale_Project_1/screenshots/s6.png)
 ```sql
 -- Average age of customers in Beauty category
 SELECT ROUND(AVG(age),2) AS average_age FROM retail_sales WHERE category = 'Beauty';

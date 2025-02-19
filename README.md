@@ -66,7 +66,7 @@ SELECT COUNT(*) AS total_sale FROM retail_sales;
 ```
 
 ### Output:
-![Step 1](https://raw.githubusercontent.com/mansi306/Mysql_retail_sale_Project_1/main/screenshots/s1.png)
+![Step 1]([https://raw.githubusercontent.com/mansi306/Mysql_retail_sale_Project_1/main/screenshots/s1.png](https://raw.githubusercontent.com/mansi306/Mysql_retail_sale_Project_1/refs/heads/main/Mysql_retail_sale_Project_1/screenshots/s1.png))
 
 ```sql
 -- Unique customers

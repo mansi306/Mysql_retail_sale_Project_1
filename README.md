@@ -24,7 +24,7 @@ USE sql_project_p1;
 ```sql
 -- Rename table
 ALTER TABLE retail_sales
-CHANGE `ï»¿transactions_id` `transaction_id` INT;
+CHANGE `ï»¿ctransactions_id` `transaction_id` INT;
 
 ALTER TABLE retail_sales
 CHANGE `quantiy` `quantity` INT;
@@ -46,20 +46,20 @@ MODIFY total_sale FLOAT;
 -- Check for NULL values
 SELECT * FROM retail_sales WHERE transaction_id IS NULL;
 SELECT * FROM retail_sales WHERE sale_date IS NULL;
-SELECT * FROM retail_sales WHERE 
-    sale_time IS NULL OR 
-    customer_id IS NULL OR 
-    gender IS NULL OR 
-    age IS NULL OR 
-    category IS NULL OR 
-    quantity IS NULL OR 
-    price_per_unit IS NULL OR 
-    cogs IS NULL OR 
+SELECT * FROM retail_sales WHERE
+    sale_time IS NULL OR
+    customer_id IS NULL OR
+    gender IS NULL OR
+    age IS NULL OR
+    category IS NULL OR
+    quantity IS NULL OR
+    price_per_unit IS NULL OR
+    cogs IS NULL OR
     total_sale IS NULL;
 ```
 
-**Output:**
-
+### Output:
+![Data Cleaning Output](https://raw.githubusercontent.com/mansi306/Mysql_retail_sale_Project_1/main/screenshots/s1.png)
 
 ## Data Exploration
 
@@ -68,24 +68,24 @@ SELECT * FROM retail_sales WHERE
 SELECT COUNT(*) AS total_sale FROM retail_sales;
 ```
 
-**Output:**
-
+### Output:
+![Total Sales Count](https://raw.githubusercontent.com/mansi306/Mysql_retail_sale_Project_1/main/screenshots/s2.png)
 
 ```sql
 -- Unique customers
 SELECT COUNT(DISTINCT customer_id) AS total_customer FROM retail_sales;
 ```
 
-**Output:**
-
+### Output:
+![Unique Customers](https://raw.githubusercontent.com/mansi306/Mysql_retail_sale_Project_1/main/screenshots/s3.png)
 
 ```sql
--- Unw COUNT(DISTINCT category) AS total_category FROM retail_sales;
+-- Unique categories
 SELECT DISTINCT category FROM retail_sales;
 ```
 
-**Output:**
-
+### Output:
+![Unique Categories](https://raw.githubusercontent.com/mansi306/Mysql_retail_sale_Project_1/main/screenshots/s4.png)
 
 ## Business Analysis Queries
 
@@ -94,92 +94,92 @@ SELECT DISTINCT category FROM retail_sales;
 SELECT * FROM retail_sales WHERE sale_date = '2022-11-05';
 ```
 
-**Output:**
-
+### Output:
+![Sales on Date](https://raw.githubusercontent.com/mansi306/Mysql_retail_sale_Project_1/main/screenshots/s5.png)
 
 ```sql
 -- Clothing sales with quantity >= 4 in Nov 2022
-SELECT * FROM retail_sales 
-WHERE category = 'Clothing' AND quantity >= 4 
+SELECT * FROM retail_sales
+WHERE category = 'Clothing' AND quantity >= 4
 AND DATE_FORMAT(sale_date, "%Y-%m") = "2022-11";
 ```
 
-**Output:**
-
+### Output:
+![Clothing Sales](https://raw.githubusercontent.com/mansi306/Mysql_retail_sale_Project_1/main/screenshots/s6.png)
 
 ```sql
 -- Total sales per category
-SELECT category, SUM(total_sale) AS total_sale, COUNT(*) AS total_count 
+SELECT category, SUM(total_sale) AS total_sale, COUNT(*) AS total_count
 FROM retail_sales GROUP BY category;
 ```
 
-**Output:**
-
+### Output:
+![Sales Per Category](https://raw.githubusercontent.com/mansi306/Mysql_retail_sale_Project_1/main/screenshots/s7.png)
 
 ```sql
 -- Average age of customers in Beauty category
 SELECT ROUND(AVG(age),2) AS average_age FROM retail_sales WHERE category = 'Beauty';
 ```
 
-**Output:**
-
+### Output:
+![Average Age](https://raw.githubusercontent.com/mansi306/Mysql_retail_sale_Project_1/main/screenshots/s8.png)
 
 ```sql
 -- Transactions with total_sale > 1000
 SELECT * FROM retail_sales WHERE total_sale > 1000;
 ```
 
-**Output:**
-
+### Output:
+![Transactions Over 1000](https://raw.githubusercontent.com/mansi306/Mysql_retail_sale_Project_1/main/screenshots/s9.png)
 
 ```sql
 -- Transactions by gender in each category
-SELECT category, gender, COUNT(*) AS total_trans FROM retail_sales 
+SELECT category, gender, COUNT(*) AS total_trans FROM retail_sales
 GROUP BY category, gender ORDER BY category;
 ```
 
-**Output:**
-
+### Output:
+![Transactions by Gender](https://raw.githubusercontent.com/mansi306/Mysql_retail_sale_Project_1/main/screenshots/s10.png)
 
 ```sql
 -- Best selling month in each year
 WITH MonthlySales AS (
-    SELECT YEAR(sale_date) AS year, MONTH(sale_date) AS month, 
-    ROUND(AVG(total_sale), 2) AS average_sale FROM retail_sales 
+    SELECT YEAR(sale_date) AS year, MONTH(sale_date) AS month,
+    ROUND(AVG(total_sale), 2) AS average_sale FROM retail_sales
     GROUP BY YEAR(sale_date), MONTH(sale_date)
 )
 SELECT year, month, average_sale FROM (
-    SELECT year, month, average_sale, 
+    SELECT year, month, average_sale,
     RANK() OVER (PARTITION BY year ORDER BY average_sale DESC) AS `rank`
     FROM MonthlySales
 ) AS RankedSales WHERE `rank` = 1 ORDER BY year;
 ```
 
-**Output:**
-
+### Output:
+![Best Selling Month](https://raw.githubusercontent.com/mansi306/Mysql_retail_sale_Project_1/main/screenshots/s11.png)
 
 ```sql
 -- Top 5 customers by total sales
-SELECT customer_id, SUM(total_sale) AS total_sale FROM retail_sales 
+SELECT customer_id, SUM(total_sale) AS total_sale FROM retail_sales
 GROUP BY customer_id ORDER BY total_sale DESC LIMIT 5;
 ```
 
-**Output:**
-
+### Output:
+![Top 5 Customers](https://raw.githubusercontent.com/mansi306/Mysql_retail_sale_Project_1/main/screenshots/s12.png)
 
 ```sql
 -- Unique customers per category
-SELECT category, COUNT(DISTINCT customer_id) AS customer_id FROM retail_sales 
+SELECT category, COUNT(DISTINCT customer_id) AS customer_id FROM retail_sales
 GROUP BY category;
 ```
 
-**Output:**
-
+### Output:
+![Unique Customers Per Category](https://raw.githubusercontent.com/mansi306/Mysql_retail_sale_Project_1/main/screenshots/s13.png)
 
 ```sql
 -- Orders by shift (Morning, Afternoon, Evening)
-SELECT 
-    CASE 
+SELECT
+    CASE
         WHEN HOUR(sale_time) < 12 THEN 'Morning'
         WHEN HOUR(sale_time) BETWEEN 12 AND 17 THEN 'Afternoon'
         ELSE 'Evening'
@@ -190,8 +190,8 @@ GROUP BY shift
 ORDER BY FIELD(shift, 'Morning', 'Afternoon', 'Evening');
 ```
 
-**Output:**
-
+### Output:
+![Orders by Shift](https://raw.githubusercontent.com/mansi306/Mysql_retail_sale_Project_1/main/screenshots/s14.png)
 
 ## Conclusion
 

@@ -211,12 +211,21 @@ ORDER BY
 
 ```sql
 -- Top 5 customers by total sales
-SELECT customer_id, SUM(total_sale) AS total_sale FROM retail_sales
-GROUP BY customer_id ORDER BY total_sale DESC LIMIT 5;
+SELECT 
+	customer_id , 
+    SUM(total_sale ) AS total_sale
+FROM 
+	retail_sales 
+GROUP BY 
+	customer_id 
+ORDER BY 
+	total_sale DESC
+LIMIT 5 ;
+
 ```
 
 ### Output:
-![Top 5 Customers](https://raw.githubusercontent.com/mansi306/Mysql_retail_sale_Project_1/main/screenshots/s12.png)
+![Top 5 Customers](https://raw.githubusercontent.com/mansi306/Mysql_retail_sale_Project_1/refs/heads/main/Mysql_retail_sale_Project_1/screenshots/s11.png)
 
 ```sql
 -- Unique customers per category

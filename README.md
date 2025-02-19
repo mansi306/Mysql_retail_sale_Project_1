@@ -91,12 +91,14 @@ FROM retail_sales;
 
 ```sql
 -- Sales made on '2022-11-05'
-SELECT * FROM retail_sales WHERE sale_date = '2022-11-05';
+SELECT *
+FROM retail_sales
+WHERE sale_date = '2022-11-05';
+
 ```
 
 ### Output:
-![Sales on Date](https://raw.githubusercontent.com/mansi306/Mysql_retail_sale_Project_1/main/screenshots/s5.png)
-
+![Sales on Date](https://raw.githubusercontent.com/mansi306/Mysql_retail_sale_Project_1/refs/heads/main/Mysql_retail_sale_Project_1/screenshots/s4.png)
 ```sql
 -- Clothing sales with quantity >= 4 in Nov 2022
 SELECT * FROM retail_sales

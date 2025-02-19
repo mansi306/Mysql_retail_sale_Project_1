@@ -157,12 +157,22 @@ SELECT *
 
 ```sql
 -- Transactions by gender in each category
-SELECT category, gender, COUNT(*) AS total_trans FROM retail_sales
-GROUP BY category, gender ORDER BY category;
+SELECT 
+	category,
+    	gender,
+    	COUNT(*) AS total_trans
+FROM 
+	retail_sales 
+GROUP BY 
+	category,
+    	gender 
+ORDER BY 
+	category;
+   
 ```
 
 ### Output:
-![Transactions by Gender](https://raw.githubusercontent.com/mansi306/Mysql_retail_sale_Project_1/main/screenshots/s10.png)
+![Transactions by Gender](https://raw.githubusercontent.com/mansi306/Mysql_retail_sale_Project_1/refs/heads/main/Mysql_retail_sale_Project_1/screenshots/s9.png)
 
 ```sql
 -- Best selling month in each year

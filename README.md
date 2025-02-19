@@ -71,10 +71,11 @@ SELECT COUNT(*) AS total_sale FROM retail_sales;
 ```sql
 -- Unique customers
 SELECT COUNT(DISTINCT customer_id) AS total_customer FROM retail_sales;
+
 ```
 
 ### Output:
-![Unique Customers](https://raw.githubusercontent.com/mansi306/Mysql_retail_sale_Project_1/main/screenshots/s3.png)
+![Unique Customers](https://raw.githubusercontent.com/mansi306/Mysql_retail_sale_Project_1/refs/heads/main/Mysql_retail_sale_Project_1/screenshots/s2.png)
 
 ```sql
 -- Unique categories

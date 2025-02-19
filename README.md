@@ -79,11 +79,13 @@ SELECT COUNT(DISTINCT customer_id) AS total_customer FROM retail_sales;
 
 ```sql
 -- Unique categories
-SELECT DISTINCT category FROM retail_sales;
+SELECT DISTINCT category AS unique_category
+FROM retail_sales;
+
 ```
 
 ### Output:
-![Unique Categories](https://raw.githubusercontent.com/mansi306/Mysql_retail_sale_Project_1/main/screenshots/s4.png)
+![Unique Categories](https://raw.githubusercontent.com/mansi306/Mysql_retail_sale_Project_1/refs/heads/main/Mysql_retail_sale_Project_1/screenshots/s3.png)
 
 ## Business Analysis Queries
 

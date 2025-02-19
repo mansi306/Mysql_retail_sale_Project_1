@@ -243,20 +243,24 @@ GROUP BY
 
 ```sql
 -- Orders by shift (Morning, Afternoon, Evening)
-SELECT
-    CASE
+SELECT 
+    CASE 
         WHEN HOUR(sale_time) < 12 THEN 'Morning'
         WHEN HOUR(sale_time) BETWEEN 12 AND 17 THEN 'Afternoon'
         ELSE 'Evening'
     END AS shift,
     COUNT(*) AS number_of_orders
-FROM retail_sales
-GROUP BY shift
-ORDER BY FIELD(shift, 'Morning', 'Afternoon', 'Evening');
+FROM 
+    retail_sales
+GROUP BY 
+    shift
+ORDER BY 
+    FIELD(shift, 'Morning', 'Afternoon', 'Evening');
+    
 ```
 
 ### Output:
-![Orders by Shift](https://raw.githubusercontent.com/mansi306/Mysql_retail_sale_Project_1/main/screenshots/s14.png)
+![Orders by Shift](https://raw.githubusercontent.com/mansi306/Mysql_retail_sale_Project_1/refs/heads/main/Mysql_retail_sale_Project_1/screenshots/s13.png)
 
 ## Conclusion
 

@@ -229,12 +229,17 @@ LIMIT 5 ;
 
 ```sql
 -- Unique customers per category
-SELECT category, COUNT(DISTINCT customer_id) AS customer_id FROM retail_sales
-GROUP BY category;
+SELECT 
+	category ,
+    	COUNT(DISTINCT customer_id) AS customer_id
+FROM 
+	retail_sales 
+GROUP BY 
+	category;
 ```
 
 ### Output:
-![Unique Customers Per Category](https://raw.githubusercontent.com/mansi306/Mysql_retail_sale_Project_1/main/screenshots/s13.png)
+![Unique Customers Per Category](https://raw.githubusercontent.com/mansi306/Mysql_retail_sale_Project_1/refs/heads/main/Mysql_retail_sale_Project_1/screenshots/s12.png)
 
 ```sql
 -- Orders by shift (Morning, Afternoon, Evening)
